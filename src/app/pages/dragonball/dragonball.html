@@ -1,28 +1,32 @@
 <h1>Dragonball Page</h1>
-<hr>
+<hr />
 
 <section class="row">
   <div class="col-12 col-sm-6">
-      <h3>Agregar:</h3>
-      <input type="text" class="form-control" placeholder="nombre">
-      <input type="number" class="form-control mt-2" placeholder="poder">
-      <button class="mt-2 btn btn-primary">Agregar</button>
-    </div>
+    <h3>Agregar:</h3>
+    <input type="text" class="form-control" placeholder="nombre" />
+    <input type="number" class="form-control mt-2" placeholder="poder" />
+    <button class="mt-2 btn btn-primary">Agregar</button>
+  </div>
 
-    <div class="col-12 col-sm-6">
-    <h3>Listado:</h3>
+  <div class="col-12 col-sm-6">
+    <h3>Listado personajes fuertes:</h3>
     <ol>
-      @for (character of characters(); track character.id) {
-        <li>
-          <span>{{ character.name  }} </span>
-          <!-- <strong [ngClass]="powerClases()">  otra forma de hacerlo ngClass-->
-          <strong [class.text-danger]="character.power>9000"
-          strong [class.text-primary]="character.power<9000"
-            >
-            ({{ character.power }})
-          </strong>
-        </li>
-      }
+      @for (character of characters(); track character.id) { @if (character.power>500) {
+      <li>
+        <span>{{ character.name }} </span>
+        <!-- <strong [ngClass]="powerClases()">  otra forma de hacerlo ngClass-->
+        <strong
+          [class.text-danger]="character.power > 9000"
+          strong
+          [class.text-primary]="character.power < 9000"
+        >
+          ({{ character.power }})
+        </strong>
+      </li>
+      }@else {
+        <strong>no es mayor a 500</strong>
+      } }
     </ol>
   </div>
 </section>
