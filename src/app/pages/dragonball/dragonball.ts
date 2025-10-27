@@ -8,13 +8,19 @@ interface Character {
 
 @Component({
   selector: 'app-dragonball',
-  imports: [],
+
+  // imports: [NgClass],
   templateUrl: './dragonball.html',
 })
 export class Dragonball {
   characters = signal<Character[]>([
-    { id: 1, name: 'Goku', power: 100 },
-    { id: 1, name: 'Vegeta', power: 100 },
-    { id: 1, name: 'Picolo', power: 100 },
+    { id: 1, name: 'Goku', power: 9001 },
+    { id: 1, name: 'Vegeta', power: 8000 },
+    { id: 1, name: 'Picolo', power: 3000 },
   ]);
+
+  //para la forma ngClass
+  // powerClases = computed(() => {
+  //   return {'text-danger': true}
+  // })
 }
