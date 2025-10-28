@@ -1,9 +1,13 @@
 <ul>
-  <h3>titulo</h3>
+  <h3>{{ listName() }}</h3>
   @for (character of characters(); track character.id) { @if (character.power>500) {
   <li>
     <span>{{ character.name }} </span>
-    <strong [class.text-danger]="character.power > 9000" strong [class.text-primary]="character.power < 9000">
+    <strong
+      [class.text-danger]="character.power > 9000"
+      strong
+      [class.text-primary]="character.power < 9000"
+    >
       ({{ character.power }})
     </strong>
   </li>
